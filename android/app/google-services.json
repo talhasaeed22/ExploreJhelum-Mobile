@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "549221687475",
+    "project_id": "products-c26e6",
+    "storage_bucket": "products-c26e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549221687475:android:4e3634e1ed7a409af6d0c6",
+        "android_client_info": {
+          "package_name": "com.explorejhelum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "549221687475-aqk3c2mgd3snvea2se2c467m2i2fusq4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRZgcuJCY32Hq5XMMm4sYTarqXCSg1bas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "549221687475-aqk3c2mgd3snvea2se2c467m2i2fusq4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
