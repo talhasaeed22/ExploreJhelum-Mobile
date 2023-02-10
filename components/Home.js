@@ -8,6 +8,9 @@ import HotelHome from './Hotels/HotelHome';
 import MyDrawer from './MyDrawer';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { StackActions } from '@react-navigation/native';
+import RestaurantHome from './Restaurants/RestaurantHome';
+import HomeInstitution from './Institutions/HomeInstitution';
+import PlacesHome from './Places/PlacesHome';
 
 const Drawer = createDrawerNavigator();
 
@@ -90,22 +93,35 @@ const Home = () => {
                 },
 
             }} />
-            <Drawer.Screen name="Restaurants" component={HomeScreen} options={{
-                title: '',
+            <Drawer.Screen name="Restaurants" component={RestaurantHome} options={{
+                title: 'Restaurants',
                 headerShown: true,
-                headerTransparent: true,
-            }} />
-            <Drawer.Screen name="Institutions" component={HomeScreen} options={{
-                title: '',
-                headerShown: true,
-                headerTransparent: true,
                 headerTintColor: 'white',
+                headerTitleAlign: 'center',
+                headerStyle: {
+                    backgroundColor: 'rgb(191, 28, 28)',
+                },
+
             }} />
-            <Drawer.Screen name="TripPlaces" component={HomeScreen} options={{
-                title: '',
+            <Drawer.Screen name="Institutions" component={HomeInstitution} options={{
+                title: 'Institutions',
                 headerShown: true,
-                headerTransparent: true,
                 headerTintColor: 'white',
+                headerTitleAlign: 'center',
+                headerStyle: {
+                    backgroundColor: 'rgb(191, 28, 28)',
+                },
+
+            }} />
+            <Drawer.Screen name="TripPlaces" component={PlacesHome} options={{
+                title: 'Institutions',
+                headerShown: true,
+                headerTintColor: 'white',
+                headerTitleAlign: 'center',
+                headerStyle: {
+                    backgroundColor: 'rgb(191, 28, 28)',
+                },
+
             }} />
         </Drawer.Navigator>
 

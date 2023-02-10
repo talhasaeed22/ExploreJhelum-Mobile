@@ -6,10 +6,10 @@ import PreFooter from '../PreFooter';
 import Footer from '../Footer';
 const Stack = createNativeStackNavigator();
 import { Button } from 'react-native-paper'
-import hoteldetails from './HotelData'
-import Hotels from './Hotels';
-import HotelDetails from './HotelDetails';
-
+import RestaurantsData from './RestaurantsData';
+import Restaurants from './Restaurants';
+import RestaurantDetails from './RestaurantDetails';
+import Entypo from 'react-native-vector-icons/Entypo'
 function HomeScreen({ navigation }) {
   return (
     <>
@@ -18,22 +18,22 @@ function HomeScreen({ navigation }) {
       </View>
       <ScrollView>
         <View style={{ padding: 20 }}>
-          <Text style={{ color: "rgb(191, 28, 28)", fontSize: 30, fontWeight: 'bold', textDecorationLine:"underline",  }}>Hotels</Text>
-          <Text style={{ fontSize: 16 }}>Hotels are categorized depending upon location, number of rooms, types of rooms and other available facilities. One of the important facilities in hotels includes good reception and information counter. </Text>
+          <Text style={{ color: "rgb(191, 28, 28)", fontSize: 30, fontWeight: 'bold', textDecorationLine:"underline",  }}>Restaurants</Text>
+          <Text style={{ fontSize: 16 }}>Restaurants are categorized depending upon their Menu, quality of food, types of items and other available facilities. We always preffer to have the information for those which meets the needs of our customers. </Text>
           <FlatList
-            data={hoteldetails}
+            data={RestaurantsData}
             renderItem={({ item }) => <View style={{ paddingRight: 20, paddingVertical: 20 }}>
               <Text numberOfLines={1} style={{ fontSize: 20, paddingBottom: 10, color: 'black', fontWeight: "bold" }}>{item.title}</Text>
               <Image style={{ justifyContent: "center", width: Dimensions.get('window').width - 50, height:250 }} resizeMode='cover' source={item.url} />
             </View>}
             horizontal
           />
-          <Text style={{ fontSize: 16 }}>Today, modern western hotels are found in all big cities and at important tourist locations. </Text>
-          <Text style={{ fontSize: 16 }}>Large comfortable beds covered with special bedspreads that get made by themselves, and bathrooms that are clean and shiny.</Text>
-          <Text style={{ fontSize: 16 }}>Hotel rooms have everything you need for a pleasant stay</Text>
+          <Text style={{ fontSize: 16, marginBottom:10 }}> <Entypo name='check' size={23} color='rgb(191, 28, 28)'/> Today, modern western hotels are found in all big cities and at important tourist locations. </Text>
+          <Text style={{ fontSize: 16, marginBottom:10  }}> <Entypo name='check' size={23} color='rgb(191, 28, 28)'/> Large comfortable beds covered with special bedspreads that get made by themselves, and bathrooms that are clean and shiny.</Text>
+          <Text style={{ fontSize: 16, marginBottom:10  }}> <Entypo name='check' size={23} color='rgb(191, 28, 28)'/> Hotel rooms have everything you need for a pleasant stay</Text>
 
           <View style={{display:'flex', justifyContent:"space-between", flexDirection:'row'}}>
-          <TouchableOpacity onPress={()=>{navigation.navigate('HotelsCollection')}}>
+          <TouchableOpacity onPress={()=>{navigation.navigate('RestaurantsCollection')}}>
             <Button style={{ height: 45, alignItems: 'center', justifyContent: "center", marginVertical: 20, marginBottom: 30, borderRadius: 10, width:140 }} textColor="white" labelStyle={{ fontSize: 17 }} buttonColor='rgb(191, 28, 28)' mode="contained" >
               View More
             </Button>
@@ -56,20 +56,20 @@ function HomeScreen({ navigation }) {
   );
 }
 
-const HotelHome = () => {
+const RestaurantHome = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="HotelHome" component={HomeScreen} options={{
+      <Stack.Screen name="RestaurantHome" component={HomeScreen} options={{
         headerShown: false
       }} />
-      <Stack.Screen name="HotelsCollection" component={Hotels} options={{
+      <Stack.Screen name="RestaurantsCollection" component={Restaurants} options={{
         headerShown: false
       }} />
-      <Stack.Screen name="HotelDetail" component={HotelDetails} options={{
+      <Stack.Screen name="RestaurantDetail" component={RestaurantDetails} options={{
         headerShown: false
       }} />
     </Stack.Navigator>
   )
 }
 
-export default HotelHome
+export default RestaurantHome

@@ -15,7 +15,7 @@ const Navbar = ({ navigation }) => {
           <FOntsito name='person' color='rgb(191, 28, 28)' size={33} />
           <Text style={{ fontSize: 17, fontWeight: "bold", color: "black" }}>{auth().currentUser.displayName}</Text>
         </View>
-        : <TouchableOpacity><Button style={{ height: 40, alignItems: 'center', justifyContent: "center", marginVertical: 10, borderRadius: 10 }} textColor="white" labelStyle={{ fontSize: 18 }} buttonColor='black' icon="login" mode="contained" >
+        : <TouchableOpacity onPress={()=>{navigation.navigate('Login')}}><Button style={{ height: 40, alignItems: 'center', justifyContent: "center", marginVertical: 10, borderRadius: 10 }} textColor="white" labelStyle={{ fontSize: 18 }} buttonColor='black' icon="login" mode="contained" >
           Login
         </Button></TouchableOpacity>}
 

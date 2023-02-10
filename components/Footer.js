@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Alert } from 'react-native'
 import React from 'react'
 import { Button } from 'react-native-paper'
 import auth from '@react-native-firebase/auth'
@@ -8,8 +8,7 @@ const Footer = ({ navigation }) => {
     const handleSignout = () => {
         auth().signOut().then(() => {
           Alert.alert('User Signed Out')
-          
-          props.navigation.dispatch(
+          navigation.dispatch(
             StackActions.replace('Login')
           );
         }).catch((err) => {
