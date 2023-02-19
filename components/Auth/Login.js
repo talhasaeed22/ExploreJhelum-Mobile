@@ -58,7 +58,7 @@ export default Login = ({ navigation }) => {
         <ScrollView style={{ backgroundColor: 'white' }}>
             <View style={{ backgroundColor: 'white' }}>
 
-                <View style={{ backgroundColor: 'rgb(191, 28, 28)', alignItems: 'center', borderBottomLeftRadius: 300, height: 320, width: Dimensions.get('window').width }} >
+                <View style={{ backgroundColor: 'rgb(191, 28, 28)', alignItems: 'center', borderBottomLeftRadius: 300, height: 300, width: Dimensions.get('window').width }} >
                     <View style={{ flexDirection: 'row', marginTop: 20, alignItems: 'center' }}>
                         <Image style={{ width: 100, height: 100 }} source={require('../../images/whitelogo.png')} />
                         <View style={{display:'flex', flexDirection:'column'}}>
@@ -66,9 +66,7 @@ export default Login = ({ navigation }) => {
                         <Text style={{ fontSize: 31, color: 'white', fontWeight: 'bold', }}>JHELUM</Text>
                         </View>
                     </View>
-                    <View style={{marginTop:10}}>
-                        <Text style={{ fontSize: 16, fontStyle: 'italic', color: 'white', paddingHorizontal:20, textAlign:'center' }}> Total Package in one application - All you need, we provide. </Text>
-                    </View>
+                   
                     <View style={{marginTop:20}}>
                         <Text style={{ fontSize: 25, fontStyle: 'italic', color: 'white', fontWeight:"bold", paddingHorizontal:20, textAlign:'center' }}> Login Page </Text>
                     </View>

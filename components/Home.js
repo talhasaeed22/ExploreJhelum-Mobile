@@ -11,6 +11,7 @@ import { StackActions } from '@react-navigation/native';
 import RestaurantHome from './Restaurants/RestaurantHome';
 import HomeInstitution from './Institutions/HomeInstitution';
 import PlacesHome from './Places/PlacesHome';
+import Recommendation from './Recommendation/Recommendation';
 
 const Drawer = createDrawerNavigator();
 
@@ -72,7 +73,9 @@ const Home = () => {
         <Drawer.Navigator screenOptions={{
             drawerStyle: {
                 backgroundColor: 'white',
+                
             },
+            
         }}
 
             drawerContent={props => <MyDrawer {...props} />}>
@@ -114,7 +117,7 @@ const Home = () => {
 
             }} />
             <Drawer.Screen name="TripPlaces" component={PlacesHome} options={{
-                title: 'Institutions',
+                title: 'Trip Places',
                 headerShown: true,
                 headerTintColor: 'white',
                 headerTitleAlign: 'center',
@@ -123,6 +126,17 @@ const Home = () => {
                 },
 
             }} />
+            <Drawer.Screen name="Recommendations" component={Recommendation} options={{
+                title: 'Recommendations',
+                headerShown: true,
+                headerTintColor: 'white',
+                headerTitleAlign: 'center',
+                headerStyle: {
+                    backgroundColor: 'rgb(191, 28, 28)',
+                },
+
+            }} />
+            
         </Drawer.Navigator>
 
     )

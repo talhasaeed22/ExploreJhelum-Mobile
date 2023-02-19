@@ -22,7 +22,7 @@ const HotelDetails = ({ navigation, route }) => {
           <Text style={{ fontSize: 25, color: "rgb(191, 28, 28)", marginVertical: 10, fontWeight: "bold" }}>{element.name}</Text>
         </View>
         <View style={{ alignItems: 'center' }}>
-          <Image style={{ width: Dimensions.get('window').width - 50, height: 250, borderRadius: 10 }} source={{ uri: element.image[0] }} resizeMode='contain' />
+          <Image style={{ width: Dimensions.get('window').width - 50, height: 250, borderRadius: 10 }} source={{ uri: element.image[0] }} resizeMode='cover' />
         </View>
         <View style={{ display: "flex", flexWrap: 'wrap', marginVertical: 10, flexDirection: "row", justifyContent: 'space-between', paddingHorizontal: 30 }} >
           {element.image.map((img, index) => {
@@ -31,8 +31,8 @@ const HotelDetails = ({ navigation, route }) => {
             </TouchableOpacity>
           })}
         </View>
-        <View style={{ paddingHorizontal: 30 }}>
-          <Text style={{ fontSize: 25, color: "rgb(191, 28, 28)", fontWeight: "bold" }}>Our Package</Text>
+        <View style={{ paddingHorizontal: 30, paddingVertical: 20 }}>
+          <Text style={{ fontSize: 25, color: "rgb(191, 28, 28)", fontWeight: "bold", textDecorationLine: 'underline', marginBottom: 10 }}>Our Package</Text>
           <View style={{ display: 'flex', flexDirection: "row", gap: 10 }}>
 
             <Text style={{ fontSize: 20, color: 'black' }}> Per Night: </Text>
@@ -40,7 +40,15 @@ const HotelDetails = ({ navigation, route }) => {
           </View>
         </View>
 
-        <View style={{ alignItems: "center", marginVertical:20, paddingHorizontal:30}}>
+        <View style={{ paddingHorizontal: 30, paddingVertical: 20 }}>
+          <Text style={{ fontSize: 25, color: "rgb(191, 28, 28)", fontWeight: "bold", textDecorationLine: 'underline' }}>Location</Text>
+
+          <TouchableOpacity onPress={() => { setImage(element.map); setVisible(true) }}>
+            <Image style={{ width: Dimensions.get('window').width - 50, height: 250, borderRadius: 10, marginVertical: 20 }} source={{ uri: element.map }} resizeMode='cover' />
+          </TouchableOpacity>
+        </View>
+
+        <View style={{ alignItems: "center", marginVertical: 20, paddingHorizontal: 30 }}>
           <Text style={{ fontSize: 25, textAlign: "center", fontWeight: "bold", color: 'rgb(191, 28, 28)' }}>Note: Please use our Application for online booking!</Text>
         </View>
 

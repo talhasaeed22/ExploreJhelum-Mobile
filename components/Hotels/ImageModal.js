@@ -17,7 +17,7 @@ const ImageModal = ({img, showMoadl, closeModal}) => {
        <TouchableOpacity style={{marginBottom:5}} onPress={()=>{closeModal()}}>
         <Entypo name='cross' color='red' size={27} />
        </TouchableOpacity>
-      <Image style={{ width: Dimensions.get('window').width - 50, height: 250, borderRadius: 10 }} source={{ uri: img }} resizeMode='contain' />
+      <Image style={{ width: Dimensions.get('window').width - 50, height: 250, borderRadius: 10 }} source={{ uri: img }} resizeMode='cover' />
       </View>
     </View>
   </Modal>

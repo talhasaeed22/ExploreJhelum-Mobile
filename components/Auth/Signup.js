@@ -61,16 +61,13 @@ export default function Signup({ navigation }) {
     <ScrollView style={{ backgroundColor: 'white' }}>
       <View style={{ backgroundColor: 'white' }}>
 
-        <View style={{ backgroundColor: 'rgb(191, 28, 28)', alignItems: 'center', borderBottomLeftRadius: 300, height: 320, width: Dimensions.get('window').width }} >
+        <View style={{ backgroundColor: 'rgb(191, 28, 28)', alignItems: 'center', borderBottomLeftRadius: 500, height: 300, width: Dimensions.get('window').width }} >
           <View style={{ flexDirection: 'row', marginTop: 20, alignItems: 'center' }}>
             <Image style={{ width: 100, height: 100 }} source={require('../../images/whitelogo.png')} />
             <View style={{ display: 'flex', flexDirection: 'column' }}>
               <Text style={{ fontSize: 31, color: 'white', fontWeight: 'bold', }}>PLORE </Text>
               <Text style={{ fontSize: 31, color: 'white', fontWeight: 'bold', }}>JHELUM</Text>
             </View>
-          </View>
-          <View style={{ marginTop: 10 }}>
-            <Text style={{ fontSize: 16, fontStyle: 'italic', color: 'white', paddingHorizontal: 20, textAlign: 'center' }}> Total Package in one application - All you need, we provide. </Text>
           </View>
           <View style={{ marginTop: 20 }}>
             <Text style={{ fontSize: 25, fontStyle: 'italic', color: 'white', fontWeight: "bold", paddingHorizontal: 20, textAlign: 'center' }}> Register Page </Text>
@@ -113,7 +110,7 @@ export default function Signup({ navigation }) {
         </View>
 
         <View style={{ marginTop: 20 }}>
-          <Text style={{ color: 'rgb(191, 28, 28)', textAlign: 'center', fontSize: 15 }} > Already have an Account? <Text onPress={() => { navigation.navigate('Signin') }} style={{ fontStyle: 'italic', fontWeight: 'bold', color: '#636bad', textDecorationLine: 'underline' }}> Login Here </Text> </Text>
+          <Text style={{ color: 'rgb(191, 28, 28)', textAlign: 'center', fontSize: 15 }} > Already have an Account? <Text onPress={() => { navigation.navigate('Login') }} style={{ fontStyle: 'italic', fontWeight: 'bold', color: '#636bad', textDecorationLine: 'underline' }}> Login Here </Text> </Text>
         </View>
 
       </View>

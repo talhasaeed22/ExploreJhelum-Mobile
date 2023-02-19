@@ -22,7 +22,7 @@ const RestaurantDetail = ({ navigation, route }) => {
           <Text style={{ fontSize: 25, color: "rgb(191, 28, 28)", marginVertical: 10, fontWeight: "bold" }}>{element.name}</Text>
         </View>
         <View style={{ alignItems: 'center' }}>
-          <Image style={{ width: Dimensions.get('window').width - 50, height: 250, borderRadius: 10 }} source={{ uri: element.image[0] }} resizeMode='contain' />
+          <Image style={{ width: Dimensions.get('window').width - 50, height: 250, borderRadius: 10 }} source={{ uri: element.image[0] }} resizeMode='cover' />
         </View>
         <View style={{ display: "flex", flexWrap: 'wrap', marginVertical: 10, flexDirection: "row", justifyContent: 'space-between', paddingHorizontal: 30 }} >
           {element.image.map((img, index) => {
@@ -30,6 +30,13 @@ const RestaurantDetail = ({ navigation, route }) => {
               <Image resizeMode='cover' style={{ width: Dimensions.get('window').width / 3, height: 150, borderRadius: 10, marginVertical: 10 }} source={{ uri: img }} />
             </TouchableOpacity>
           })}
+        </View>
+        <View style={{ paddingHorizontal: 30, paddingVertical: 20 }}>
+          <Text style={{ fontSize: 25, color: "rgb(191, 28, 28)", fontWeight: "bold", textDecorationLine: 'underline' }}>Location</Text>
+
+          <TouchableOpacity onPress={() => { setImage(element.map); setVisible(true) }}>
+            <Image style={{ width: Dimensions.get('window').width - 50, height: 250, borderRadius: 10, marginVertical: 20 }} source={{ uri: element.map }} resizeMode='cover' />
+          </TouchableOpacity>
         </View>
 
         <View style={{ alignItems: "center", marginVertical:20, paddingHorizontal:30}}>
