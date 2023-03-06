@@ -7,7 +7,7 @@ import auth from '@react-native-firebase/auth'
 import HotelHome from './Hotels/HotelHome';
 import MyDrawer from './MyDrawer';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { StackActions } from '@react-navigation/native';
+import { StackActions, useIsFocused } from '@react-navigation/native';
 import RestaurantHome from './Restaurants/RestaurantHome';
 import HomeInstitution from './Institutions/HomeInstitution';
 import PlacesHome from './Places/PlacesHome';
@@ -16,6 +16,11 @@ import Recommendation from './Recommendation/Recommendation';
 const Drawer = createDrawerNavigator();
 
 const HomeScreen = ({ navigation }) => {
+    const isFocus = useIsFocused();
+    const [name, setName] = useState('')
+    useEffect(() => {
+        if (auth().currentUser) setName(auth().currentUser.displayName);
+    }, [isFocus])
     const handleSignout = () => {
         auth().signOut().then(() => {
             Alert.alert('User Signed Out')
@@ -40,11 +45,11 @@ const HomeScreen = ({ navigation }) => {
             </View>
             <View style={{ flex: 1, backgroundColor: 'white' }}>
                 <View style={{ backgroundColor: 'rgb(191, 28, 28)', borderTopLeftRadius: 80, flex: 1 }}>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 35 }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingVertical: 35 }}>
                         {/* {auth().currentUser && <Text style={{ fontWeight: 'bold', marginTop: 12, fontSize: 28, color: 'white' }}>Hi, {auth().currentUser.displayName}</Text>} */}
-                        <Text style={{ fontWeight: 'bold', marginTop: 12, fontSize: 28, color: 'white' }}>{auth().currentUser ? 'Hi, Talha' : ' '}</Text>
+                        <Text style={{ fontWeight: 'bold', marginTop: 12, fontSize: 28, color: 'white' }}>{auth().currentUser ? `Hi, ${name}` : ' '}</Text>
                         <Text style={{ fontWeight: 'bold', marginTop: 12, fontSize: 28, color: 'white', fontFamily: 'Cabin-Bold' }}>Welcome to XploreJhelum</Text>
-                        <Text style={{ fontWeight: 'bold', marginTop: 28, fontSize: 15, color: 'white' }}>We Suggest you to login to our app in order to have all the oppurtunities.</Text>
+                        <Text style={{ fontWeight: 'bold', marginTop: 28, fontSize: 15, color: 'white', paddingHorizontal:30 }}>We Suggest you to login to our app in order to have all the oppurtunities.</Text>
                         {!auth().currentUser ? <TouchableOpacity onPress={() => {
                             navigation.dispatch(
                                 StackActions.replace('Login')
@@ -73,9 +78,9 @@ const Home = () => {
         <Drawer.Navigator screenOptions={{
             drawerStyle: {
                 backgroundColor: 'white',
-                
+
             },
-            
+
         }}
 
             drawerContent={props => <MyDrawer {...props} />}>
@@ -136,7 +141,7 @@ const Home = () => {
                 },
 
             }} />
-            
+
         </Drawer.Navigator>
 
     )

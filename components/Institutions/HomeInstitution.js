@@ -1,5 +1,5 @@
 import { View, Text, ScrollView, Dimensions, Image, FlatList, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Navbar from '../Navbar';
 import PreFooter from '../PreFooter';
@@ -9,7 +9,31 @@ import { Button } from 'react-native-paper'
 import Institutions from './Institutions';
 import InstitutionDetails from './InstitutionDetails';
 import InstitutionData from './InstitutionData';
+import firestore from '@react-native-firebase/firestore';
+import { useIsFocused } from '@react-navigation/native';
+
 function HomeScreen({ navigation }) {
+  const isFocus = useIsFocused();
+  useEffect(()=>{
+    getPosts();
+  }, [isFocus])
+  const [list, setList] = useState([])
+  const getPosts = ()=>{
+    let data= [];
+    firestore().collection('Institutions')
+    .get().then((snap)=>{
+      snap.forEach((doc)=>{
+        const {image, name} = doc.data();
+        data.push({
+          name:name,
+          image:image
+        })
+      })
+      setList(data);
+    }).catch((err)=>{
+      console.log(err)
+    })
+  }
   return (
     <>
       <View style={{ borderBottomWidth: 1, borderBottomColor: "lightgray" }}>
@@ -20,10 +44,10 @@ function HomeScreen({ navigation }) {
           <Text style={{ color: "rgb(191, 28, 28)", fontSize: 30, fontWeight: 'bold', textDecorationLine:"underline",  }}>Institution</Text>
           <Text style={{ fontSize: 16 }}>Institutions are categorized depending upon Location, Level of education, Standard and other available facilities. One of the important facilities in hotels includes good reception and information counter. </Text>
           <FlatList
-            data={InstitutionData}
+            data={list}
             renderItem={({ item }) => <View style={{ paddingRight: 20, paddingVertical: 20 }}>
-              <Text numberOfLines={1} style={{ fontSize: 20, paddingBottom: 10, color: 'black', fontWeight: "bold" }}>{item.title}</Text>
-              <Image style={{ justifyContent: "center", width: Dimensions.get('window').width - 50, height:250 }} resizeMode='cover' source={item.url} />
+              <Text numberOfLines={1} style={{ fontSize: 20, paddingBottom: 10, color: 'black', fontWeight: "bold" }}>{item.name}</Text>
+              <Image style={{ justifyContent: "center", width: Dimensions.get('window').width - 50, height:250 }} resizeMode='cover' source={{uri:item.image[0]}} />
             </View>}
             horizontal
           />
