@@ -12,6 +12,7 @@ import RestaurantHome from './Restaurants/RestaurantHome';
 import HomeInstitution from './Institutions/HomeInstitution';
 import PlacesHome from './Places/PlacesHome';
 import Recommendation from './Recommendation/Recommendation';
+import Feedback from './Feedback';
 
 const Drawer = createDrawerNavigator();
 
@@ -49,7 +50,7 @@ const HomeScreen = ({ navigation }) => {
                         {/* {auth().currentUser && <Text style={{ fontWeight: 'bold', marginTop: 12, fontSize: 28, color: 'white' }}>Hi, {auth().currentUser.displayName}</Text>} */}
                         <Text style={{ fontWeight: 'bold', marginTop: 12, fontSize: 28, color: 'white' }}>{auth().currentUser ? `Hi, ${name}` : ' '}</Text>
                         <Text style={{ fontWeight: 'bold', marginTop: 12, fontSize: 28, color: 'white', fontFamily: 'Cabin-Bold' }}>Welcome to XploreJhelum</Text>
-                        <Text style={{ fontWeight: 'bold', marginTop: 28, fontSize: 15, color: 'white', paddingHorizontal:30 }}>We Suggest you to login to our app in order to have all the oppurtunities.</Text>
+                        <Text style={{ fontWeight: 'bold', marginTop: 28, fontSize: 15, color: 'white', paddingHorizontal: 30 }}>We Suggest you to login to our app in order to have all the oppurtunities.</Text>
                         {!auth().currentUser ? <TouchableOpacity onPress={() => {
                             navigation.dispatch(
                                 StackActions.replace('Login')
@@ -133,6 +134,17 @@ const Home = () => {
             }} />
             <Drawer.Screen name="Recommendations" component={Recommendation} options={{
                 title: 'Recommendations',
+                headerShown: true,
+                headerTintColor: 'white',
+                headerTitleAlign: 'center',
+                headerStyle: {
+                    backgroundColor: 'rgb(191, 28, 28)',
+                },
+
+            }} />
+
+            <Drawer.Screen name="Contact" component={Feedback} options={{
+                title: 'Feedback',
                 headerShown: true,
                 headerTintColor: 'white',
                 headerTitleAlign: 'center',

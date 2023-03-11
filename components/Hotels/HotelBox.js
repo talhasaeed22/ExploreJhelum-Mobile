@@ -17,7 +17,7 @@ const HotelBox = ({ navigation, path, name, location, element }) => {
       <View style={{ display: "flex", paddingHorizontal: 30, gap:5, paddingTop:5 }}>
 
         <Text style={{ fontSize: 15, fontStyle: 'italic', fontWeight: "bold" }}>WP4J+X73، Jhelum Bridge، Grand Trunk Road, River Jhelum Mews, Gujrat, Punjab 54000</Text>
-        <Text style={{ fontSize: 18, color: 'black' }}> Per Night: <Text style={{ fontWeight: "bold", color: "orangered" }}> 45000 ./</Text> </Text>
+        <Text style={{ fontSize: 18, color: 'black' }}> Per Night: <Text style={{ fontWeight: "bold", color: "orangered" }}> {element.pernight} ./</Text> </Text>
 
 
       </View>

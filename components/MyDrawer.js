@@ -17,7 +17,7 @@ const MyDrawer = (props) => {
   const handleSignout = () => {
     auth().signOut().then(() => {
       Alert.alert('User Signed Out')
-      
+
       props.navigation.dispatch(
         StackActions.replace('Login')
       );
@@ -34,19 +34,19 @@ const MyDrawer = (props) => {
 
     <View style={{ flex: 1, }}>
       <DrawerContentScrollView {...props}>
-        <View style={{  flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingTop: 50, backgroundColor:'rgb(191, 28, 28)' }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingTop: 50, backgroundColor: 'rgb(191, 28, 28)' }}>
           <Image style={{ width: 50, height: 50 }} source={require('../images/whitelogo.png')} />
           <Text style={{ fontSize: 31, color: 'white', fontWeight: 'bold', }}>ploreJhelum </Text>
         </View>
-        {auth().currentUser && <View style={{ flexDirection: 'row', alignItems: "center", padding: 25, backgroundColor:'rgb(191, 28, 28)', paddingVertical:30 }}>
+        {auth().currentUser && <View style={{ flexDirection: 'row', alignItems: "center", padding: 25, backgroundColor: 'rgb(191, 28, 28)', paddingVertical: 30 }}>
           {/* <Avatar.Image source={{  }} size={50} /> */}
           <Fontiso name='person' size={42} color='white' />
-          <View style={{ flexDirection: 'column', backgroundColor:'rgb(191, 28, 28)'  }}>
+          <View style={{ flexDirection: 'column', backgroundColor: 'rgb(191, 28, 28)' }}>
             <Text style={{ marginLeft: 15, fontSize: 15, color: 'white', fontWeight: 'bold' }}> {auth().currentUser.displayName} </Text>
             <Text style={{ marginLeft: 15, fontWeight: 'bold', color: 'white' }}> {auth().currentUser.email} </Text>
           </View>
         </View>}
-        {!auth().currentUser && <View style={{ paddingBottom: 30, paddingHorizontal:20, backgroundColor:'rgb(191, 28, 28)', borderBottomRightRadius:40 }}>
+        {!auth().currentUser && <View style={{ paddingBottom: 30, paddingHorizontal: 20, backgroundColor: 'rgb(191, 28, 28)', borderBottomRightRadius: 40 }}>
           <Text style={{ fontWeight: 'bold', marginTop: 28, fontSize: 15, color: 'white' }}>We Suggest you to login to our app in order to have all the oppurtunities.</Text>
         </View>}
         <View style={{ marginTop: 15, flexDirection: 'column', marginLeft: 15, }}>
@@ -82,6 +82,12 @@ const MyDrawer = (props) => {
             label={() => (<Text style={{ color: focusedRoute === 'Recommendations' ? ('white') : 'black', fontSize: 15 }}>Recommendations</Text>)}
 
           />
+
+          {/* <DrawerItem onPress={() => { props.navigation.navigate('Contact') }} style={focusedRoute === 'Contact' ? { backgroundColor: '#ff0000' } : {}}
+            icon={({ color, size }) => (<Material name="feedback" size={21} color={focusedRoute === 'Contact' ? ('white') : 'black'} />)}
+            label={() => (<Text style={{ color: focusedRoute === 'Contact' ? ('white') : 'black', fontSize: 15 }}>Feedback</Text>)}
+
+          /> */}
 
 
         </View>

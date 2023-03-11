@@ -1,4 +1,4 @@
-import { View, Text, Image, Dimensions, ScrollView, TouchableOpacity } from 'react-native'
+import { View, Text, Image, Dimensions, ScrollView, TouchableOpacity, Linking } from 'react-native'
 import React, { useState } from 'react'
 import Navbar from '../Navbar'
 import ImageModal from '../Hotels/ImageModal'
@@ -31,13 +31,15 @@ const RestaurantDetail = ({ navigation, route }) => {
             </TouchableOpacity>
           })}
         </View>
-        <View style={{ paddingHorizontal: 30, paddingVertical: 20 }}>
+        <TouchableOpacity onPress={()=>{
+          Linking.openURL(element.link)
+        }} style={{ paddingHorizontal: 30, paddingVertical: 20 }}>
           <Text style={{ fontSize: 25, color: "rgb(191, 28, 28)", fontWeight: "bold", textDecorationLine: 'underline' }}>Location</Text>
 
           <TouchableOpacity onPress={() => { setImage(element.map); setVisible(true) }}>
             <Image style={{ width: Dimensions.get('window').width - 50, height: 250, borderRadius: 10, marginVertical: 20 }} source={{ uri: element.map }} resizeMode='cover' />
           </TouchableOpacity>
-        </View>
+        </TouchableOpacity>
 
         <View style={{ alignItems: "center", marginVertical:20, paddingHorizontal:30}}>
           <Text style={{ fontSize: 25, textAlign: "center", fontWeight: "bold", color: 'rgb(191, 28, 28)' }}>Note: Please use our Web Application for further Details!</Text>

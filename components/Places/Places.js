@@ -16,14 +16,15 @@ const Places = ({ navigation }) => {
         const postItem = [];
         firestore().collection('Places').get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                const { name, image, number, location, map } = doc.data();
+                const { name, image, number, location, map, link } = doc.data();
                 postItem.push({
                     id: doc.id,
                     name: name,
                     image: image,
                     number: number,
                     location: location,
-                    map:map
+                    map:map,
+                    link
                 });
             });
             setPosts(postItem);

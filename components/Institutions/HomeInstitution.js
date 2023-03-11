@@ -51,10 +51,7 @@ function HomeScreen({ navigation }) {
             </View>}
             horizontal
           />
-          <Text style={{ fontSize: 16 }}>Today, modern western hotels are found in all big cities and at important tourist locations. </Text>
-          <Text style={{ fontSize: 16 }}>Large comfortable beds covered with special bedspreads that get made by themselves, and bathrooms that are clean and shiny.</Text>
-          <Text style={{ fontSize: 16 }}>Hotel rooms have everything you need for a pleasant stay</Text>
-
+         
           <View style={{display:'flex', justifyContent:"space-between", flexDirection:'row'}}>
           <TouchableOpacity onPress={()=>{navigation.navigate('InstitutionsCollection')}}>
             <Button style={{ height: 45, alignItems: 'center', justifyContent: "center", marginVertical: 20, marginBottom: 30, borderRadius: 10, width:140 }} textColor="white" labelStyle={{ fontSize: 17 }} buttonColor='rgb(191, 28, 28)' mode="contained" >

@@ -28,9 +28,9 @@ function HomeScreen({ navigation }) {
             </View>}
             horizontal
           />
-          <Text style={{ fontSize: 16, marginBottom:10 }}> <Entypo name='check' size={23} color='rgb(191, 28, 28)'/> Today, modern western hotels are found in all big cities and at important tourist locations. </Text>
-          <Text style={{ fontSize: 16, marginBottom:10  }}> <Entypo name='check' size={23} color='rgb(191, 28, 28)'/> Large comfortable beds covered with special bedspreads that get made by themselves, and bathrooms that are clean and shiny.</Text>
-          <Text style={{ fontSize: 16, marginBottom:10  }}> <Entypo name='check' size={23} color='rgb(191, 28, 28)'/> Hotel rooms have everything you need for a pleasant stay</Text>
+          <Text style={{ fontSize: 16, marginBottom:10 }}> <Entypo name='check' size={23} color='rgb(191, 28, 28)'/> Today, modern western restaurants are found in all big cities and at important tourist locations. </Text>
+         
+          <Text style={{ fontSize: 16, marginBottom:10  }}> <Entypo name='check' size={23} color='rgb(191, 28, 28)'/> Restaurnts rooms have everything you need for a pleasant food</Text>
 
           <View style={{display:'flex', justifyContent:"space-between", flexDirection:'row'}}>
           <TouchableOpacity onPress={()=>{navigation.navigate('RestaurantsCollection')}}>

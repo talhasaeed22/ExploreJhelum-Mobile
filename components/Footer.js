@@ -1,10 +1,11 @@
 import { View, Text, TouchableOpacity, Alert } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from 'react-native-paper'
 import auth from '@react-native-firebase/auth'
 import { StackActions } from '@react-navigation/native';
 
 const Footer = ({ navigation }) => {
+  const [subscribe, setSubscribe] = useState(false)
     const handleSignout = () => {
         auth().signOut().then(() => {
           Alert.alert('User Signed Out')
@@ -26,6 +27,11 @@ const Footer = ({ navigation }) => {
             </TouchableOpacity> : <TouchableOpacity onPress={() => { navigation.navigate('Login') }}>
                 <Button style={{ height: 50, alignItems: 'center', justifyContent: "center", marginVertical: 20, marginBottom: 30, borderRadius: 10 }} textColor="black" labelStyle={{ fontSize: 20 }} buttonColor='white' icon="login" mode="contained" >
                     Login to continue
+                </Button>
+            </TouchableOpacity>}
+            {auth().currentUser && <TouchableOpacity onPress={() => { setSubscribe(!subscribe) }}>
+                <Button style={{ height: 50, alignItems: 'center', justifyContent: "center", marginBottom: 30, borderRadius: 10, backgroundColor:subscribe ? 'black' :'white', }} textColor={!subscribe ? "black" : 'white'} labelStyle={{ fontSize: 20 }} mode="contained" >
+                    {subscribe ? 'Unsubscribe' : 'Subscribe'}
                 </Button>
             </TouchableOpacity>}
 
