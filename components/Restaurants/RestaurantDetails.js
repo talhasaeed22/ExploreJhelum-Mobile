@@ -127,10 +127,6 @@ const RestaurantDetail = ({ navigation, route }) => {
           </View>
         </View>
 
-        <View style={{ alignItems: "center", marginVertical:20, paddingHorizontal:30}}>
-          <Text style={{ fontSize: 25, textAlign: "center", fontWeight: "bold", color: 'rgb(191, 28, 28)' }}>Note: Please use our Web Application for further Details!</Text>
-        </View>
-
         <View style={{borderTopWidth:1, borderTopColor:'lightgray', paddingBottom:10}}></View>
 
 

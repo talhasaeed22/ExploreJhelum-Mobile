@@ -18,10 +18,7 @@ const Drawer = createDrawerNavigator();
 
 const HomeScreen = ({ navigation }) => {
     const isFocus = useIsFocused();
-    const [name, setName] = useState('')
-    useEffect(() => {
-        if (auth().currentUser) setName(auth().currentUser.displayName);
-    }, [isFocus])
+
     const handleSignout = () => {
         auth().signOut().then(() => {
             Alert.alert('User Signed Out')
@@ -48,7 +45,7 @@ const HomeScreen = ({ navigation }) => {
                 <View style={{ backgroundColor: 'rgb(191, 28, 28)', borderTopLeftRadius: 80, flex: 1 }}>
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingVertical: 35 }}>
                      
-                        <Text style={{ fontWeight: 'bold', marginTop: 12, fontSize: 28, color: 'white' }}>{auth().currentUser ? `Hi, ${auth().currentUser && auth().currentUser.displayName}` : ' '}</Text>
+                        <Text style={{ fontWeight: 'bold', marginTop: 12, fontSize: 28, color: 'white' }}>{auth().currentUser ? `Hi, ${auth().currentUser.displayName === null ? '' : auth().currentUser.displayName}` : ' '}</Text>
                         <Text style={{ fontWeight: 'bold', marginTop: 12, fontSize: 28, color: 'white', fontFamily: 'Cabin-Bold' }}>Welcome to XploreJhelum</Text>
                         <Text style={{ fontWeight: 'bold', marginTop: 28, fontSize: 15, color: 'white', paddingHorizontal: 30 }}>We Suggest you to login to our app in order to have all the oppurtunities.</Text>
                         {!auth().currentUser ? <TouchableOpacity onPress={() => {

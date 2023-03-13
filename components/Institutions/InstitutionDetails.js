@@ -1,4 +1,4 @@
-import { View, Text, Image, Dimensions, ScrollView, TouchableOpacity, TextInput, Alert } from 'react-native'
+import { View, Text, Image, Dimensions, ScrollView, TouchableOpacity, TextInput, Alert, Linking } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import Navbar from '../Navbar'
 import ImageModal from '../Hotels/ImageModal'
@@ -63,7 +63,7 @@ const InstitutionDetails = ({ navigation, route }) => {
           <Text style={{ fontSize: 25, color: "rgb(191, 28, 28)", marginVertical: 10, fontWeight: "bold" }}>{element.name}</Text>
         </View>
         <View style={{ alignItems: 'center' }}>
-          <Image style={{ width: Dimensions.get('window').width - 50, height: 250, borderRadius: 10 }} source={{ uri: element.image[0] }} resizeMode='contain' />
+          <Image style={{ width: Dimensions.get('window').width - 50, height: 250, borderRadius: 10 }} source={{ uri: element.image[0] }} />
         </View>
         <View style={{ display: "flex", flexWrap: 'wrap', marginVertical: 10, flexDirection: "row", justifyContent: 'space-between', paddingHorizontal: 30 }} >
           {element.image.map((img, index) => {
@@ -72,6 +72,17 @@ const InstitutionDetails = ({ navigation, route }) => {
             </TouchableOpacity>
           })}
         </View>
+
+        <TouchableOpacity onPress={()=>{
+          Linking.openURL(element.link)
+        }} style={{ paddingHorizontal: 30, paddingVertical: 20 }}>
+          <Text style={{ fontSize: 25, color: "rgb(191, 28, 28)", fontWeight: "bold", textDecorationLine: 'underline' }}>Location</Text>
+
+          <TouchableOpacity onPress={() => { setImage(element.map); setVisible(true) }}>
+            <Image style={{ width: Dimensions.get('window').width - 50, height: 250, borderRadius: 10, marginVertical: 20 }} source={{ uri: element.map }} resizeMode='cover' />
+          </TouchableOpacity>
+        </TouchableOpacity>
+
 
         <View style={{ padding: 10 }}>
           <Text style={{ color: 'rgb(191 28 28)', fontSize: 30, fontWeight: 'bold' }}>Feedback</Text>
@@ -116,10 +127,6 @@ const InstitutionDetails = ({ navigation, route }) => {
             </TouchableOpacity>
 
           </View>
-        </View>
-
-        <View style={{ alignItems: "center", marginVertical:20, paddingHorizontal:30}}>
-          <Text style={{ fontSize: 25, textAlign: "center", fontWeight: "bold", color: 'rgb(191, 28, 28)' }}>Note: Please use our Web Application for further Details!</Text>
         </View>
 
         <View style={{borderTopWidth:1, borderTopColor:'lightgray', paddingBottom:10}}></View>
