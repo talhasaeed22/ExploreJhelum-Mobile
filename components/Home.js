@@ -40,15 +40,15 @@ const HomeScreen = ({ navigation }) => {
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                         <Image source={logo} style={{ height: 120, width: 120, borderRadius: 24 }} />
                         <Text style={{ marginTop: 15, fontWeight: 'bold', fontStyle: 'italic', fontSize: 25, color: 'black' }}>Xplore Jhelum </Text>
-                        <Text style={{ fontSize: 16, fontStyle: 'italic' }}>Everything you need, in your hand</Text>
+                        <Text style={{ fontSize: 16, fontStyle: 'italic' }}>Everything you need, in your hand </Text>
                     </View>
                 </View>
             </View>
             <View style={{ flex: 1, backgroundColor: 'white' }}>
                 <View style={{ backgroundColor: 'rgb(191, 28, 28)', borderTopLeftRadius: 80, flex: 1 }}>
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingVertical: 35 }}>
-                        {/* {auth().currentUser && <Text style={{ fontWeight: 'bold', marginTop: 12, fontSize: 28, color: 'white' }}>Hi, {auth().currentUser.displayName}</Text>} */}
-                        <Text style={{ fontWeight: 'bold', marginTop: 12, fontSize: 28, color: 'white' }}>{auth().currentUser ? `Hi, ${name}` : ' '}</Text>
+                     
+                        <Text style={{ fontWeight: 'bold', marginTop: 12, fontSize: 28, color: 'white' }}>{auth().currentUser ? `Hi, ${auth().currentUser && auth().currentUser.displayName}` : ' '}</Text>
                         <Text style={{ fontWeight: 'bold', marginTop: 12, fontSize: 28, color: 'white', fontFamily: 'Cabin-Bold' }}>Welcome to XploreJhelum</Text>
                         <Text style={{ fontWeight: 'bold', marginTop: 28, fontSize: 15, color: 'white', paddingHorizontal: 30 }}>We Suggest you to login to our app in order to have all the oppurtunities.</Text>
                         {!auth().currentUser ? <TouchableOpacity onPress={() => {

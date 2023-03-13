@@ -7,7 +7,7 @@ import Footer from '../Footer'
 import FontA from 'react-native-vector-icons/FontAwesome'
 import auth from '@react-native-firebase/auth'
 import firestore from '@react-native-firebase/firestore'
-
+import Material from 'react-native-vector-icons/MaterialIcons'
 const HotelDetails = ({ navigation, route }) => {
   const [image, setImage] = useState('https://firebasestorage.googleapis.com/v0/b/products-c26e6.appspot.com/o/Hotels%2FTulip3.png?alt=media&token=4de278c4-e4ce-4e2f-b900-249451aab50a')
   const [visible, setVisible] = useState(false)
@@ -33,7 +33,7 @@ const HotelDetails = ({ navigation, route }) => {
     })
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     getComments()
   }, [update])
 
@@ -41,8 +41,8 @@ const HotelDetails = ({ navigation, route }) => {
 
     setCommentLoading(true)
 
-    firestore().collection('Hotels').get().then((snapshot)=>{
-      snapshot.forEach((doc)=>{
+    firestore().collection('Hotels').get().then((snapshot) => {
+      snapshot.forEach((doc) => {
         if (doc.id === element.id) {
           const { feedback } = doc.data();
           setList(feedback)
@@ -81,7 +81,7 @@ const HotelDetails = ({ navigation, route }) => {
           </View>
         </View>
 
-        <TouchableOpacity onPress={()=>{
+        <TouchableOpacity onPress={() => {
           Linking.openURL(element.link)
         }} style={{ paddingHorizontal: 30, paddingVertical: 20 }}>
           <Text style={{ fontSize: 25, color: "rgb(191, 28, 28)", fontWeight: "bold", textDecorationLine: 'underline' }}>Location</Text>
@@ -93,7 +93,13 @@ const HotelDetails = ({ navigation, route }) => {
 
         <View style={{ padding: 10 }}>
           <Text style={{ color: 'rgb(191 28 28)', fontSize: 30, fontWeight: 'bold' }}>Feedback</Text>
-
+          <View style={{ display: "flex", flexDirection: 'row', gap: 10, marginVertical:10, paddingHorizontal:20 }}>
+            <TouchableOpacity onPress={()=>{Alert.alert("Ratting Saved", "Thank you for ratting")}} ><Material name='stars' size={23} color='#fabd04'  /></TouchableOpacity>
+            <TouchableOpacity onPress={()=>{Alert.alert("Ratting Saved", "Thank you for ratting")}} ><Material name='stars' size={23} color='#fabd04'  /></TouchableOpacity>
+            <TouchableOpacity onPress={()=>{Alert.alert("Ratting Saved", "Thank you for ratting")}} ><Material name='stars' size={23} color='#fabd04'  /></TouchableOpacity>
+            <TouchableOpacity onPress={()=>{Alert.alert("Ratting Saved", "Thank you for ratting")}} ><Material name='stars' size={23} color='#fabd04'  /></TouchableOpacity>
+            <TouchableOpacity onPress={()=>{Alert.alert("Ratting Saved", "Thank you for ratting")}} ><Material name='stars' size={23} color='#fabd04'  /></TouchableOpacity>
+          </View>
           <View style={{ backgroundColor: 'white', boxShadow: '0px 5px 7px 0px rgb(114 114 114 / 25%)', borderRadius: 10, borderTopWidth: 1, borderTopColor: "lightgray" }}>
 
             {list.map((feedback, index) => {
