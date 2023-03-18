@@ -62,6 +62,9 @@ const HotelDetails = ({ navigation, route }) => {
         <View style={{ alignItems: "center" }}>
           <Text style={{ fontSize: 25, color: "rgb(191, 28, 28)", marginVertical: 10, fontWeight: "bold" }}>{element.name}</Text>
         </View>
+        <View style={{ alignItems: "center" }}>
+          <Text style={{ color: "black", marginVertical: 10, paddingHorizontal:20,}}>{element.description}</Text>
+        </View>
         <View style={{ alignItems: 'center' }}>
           <Image style={{ width: Dimensions.get('window').width - 50, height: 250, borderRadius: 10 }} source={{ uri: element.image[0] }} resizeMode='cover' />
         </View>

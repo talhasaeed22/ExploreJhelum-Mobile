@@ -18,7 +18,7 @@ const Hotels = ({ navigation }) => {
         const postItem = [];
         firestore().collection('Hotels').get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                const { name, image, number, map, feedback, pernight, link } = doc.data();
+                const { name, image, number, map, feedback, pernight, link, description } = doc.data();
                 postItem.push({
                     id: doc.id,
                     name: name,
@@ -27,7 +27,8 @@ const Hotels = ({ navigation }) => {
                     map:map,
                     feedback,
                     pernight,
-                    link
+                    link,
+                    description
                 });
             });
             setPosts(postItem);

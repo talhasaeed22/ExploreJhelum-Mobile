@@ -16,7 +16,7 @@ const Restaurants = ({ navigation }) => {
         const postItem = [];
         firestore().collection('Restaurants').get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                const { name, image, number, location, map, link, feedback } = doc.data();
+                const { name, image, number, location, map, link, feedback, desc } = doc.data();
                 postItem.push({
                     id: doc.id,
                     name: name,
@@ -25,7 +25,8 @@ const Restaurants = ({ navigation }) => {
                     location: location,
                     map:map,
                     link,
-                    feedback
+                    feedback,
+                    desc
                 });
             });
             setPosts(postItem);
